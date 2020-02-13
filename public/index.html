@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script type="text/javascript" src="./script.js"></script>
+        <script defer>
+            user(name => {
+                if (name) {
+                    user =name;
+                    document.getElementById('name').innerHTML = name;
+                    document.getElementById('exit').innerHTML = "Exit";
+                    document.getElementById('exit').onclick = () => {
+                        logout(() => document.location = 'login.html')
+                    }
+                } else {
+                    document.location = 'login.html';
+                }
+
+            })
+        </script>
+    </head>
+    <body>
+        <h1>Hello <span id='name'></span><span id='exit'></span></h1>
+
+    </body>
+</html>
