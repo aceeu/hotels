@@ -5,7 +5,6 @@ from os import environ
 from session import isSession
 
 print ("Content-type: application/json")
-print("cookie: blabla=bububuub")
 print("")
 # print ("<title>Hello</title>")
 # print(environ['HTTP_COOKIE'])
@@ -15,9 +14,9 @@ if 'sid' in pdict:
     y, name = isSession(pdict['sid'])
     if y == True:
         res = dict(name='administrator')
-        print(res)
+        print(json.dumps(res))
     else:
-        print("""{yyy:'yyy'}""")
+        print("""{ }""")
 else:
-    print("""{xxx:'xxx'}""")
+    print("""{ }""")
 

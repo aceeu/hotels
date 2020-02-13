@@ -23,6 +23,17 @@ def newSession(user):
         fp.write('{},{}\n'.format(uuid_, user))
     return uuid_
 
+def endSession(sid):
+    print('sid: {}'.format(sid))
+    filename = os.path.join(path, sessions)
+    with open(filename, 'r') as fp:
+        lines = fp.readlines()
+    with open(filename, 'w') as fp:
+        for l in lines:
+            ll = l.split(',')
+            if ll[0] != sid:
+                fp.write(ll)
+
 def checkLogin(u, p):
     logged = False
     filename = os.path.join(path, users)

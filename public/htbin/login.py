@@ -10,24 +10,32 @@ form = cgi.FieldStorage()
 formname = form.getfirst("name", '')
 formpass = form.getfirst("pass", '')
 
-
-print ("Content-type: text/html")
-# print ("<title>Hello</title>")
-# print("<p>{}<p>".format(environ['HTTP_COOKIE']))
 key, pdict = cgi.parse_header(environ['HTTP_COOKIE'])
-# print("<p>{}<p>".format(pdict['sid']))
 
 logged = checkLogin(formname, formpass)
 uuid = ''
 if logged:
     uuid = newSession(formname)
-
+print ("Content-type: text/html")
 print("Set-cookie: sid={};HttpOnly".format(uuid))
-print("")
+print('')
+if (logged):
+    print("""<html><head>
+        <meta http-equiv="Refresh" content="0; url=../index.html" />
+        </head>
+        <body>
+        </body>
+        </html>""")
+else: print("""<html><head>
+        <meta http-equiv="Refresh" content="0; url=../login.html" />
+        </head>
+        <body>
+        </body>
+        </html>""")
 
 
-if logged:
-    print ("<p>Вы в системе {}</p>".format(formname))
-else:
-    print('<p>Вы не авторизированы</p>')
+# if logged:
+#     print ("<p>Вы в системе {}</p>".format(formname))
+# else:
+#     print('<p>Вы не авторизированы</p>')
 
