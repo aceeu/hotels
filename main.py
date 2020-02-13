@@ -1,3 +1,4 @@
+# main hotel manager webserver 
 import sys
 import os
 from cgi import parse_header
