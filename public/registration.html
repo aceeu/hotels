@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="form-wrap">
+  <div class="profile">
+    <h1>Регистрация постояльца</h1>
+  </div>
+  <form method="post" action="form.php">
+    <div>
+      <label for="name">Имя</label>
+      <input type="text" name="name" required>
+    </div>
+    <div>
+      <label for="name">Фамилия</label>
+      <input type="text" name="lastname" required>
+    </div>
+    <div>
+      <label for="name">Отчество</label>
+      <input type="text" name="firdname" required>
+    </div>
+    <div>
+      <label for="name">Телефон</label>
+      <input type="text" name="tel" required>
+    </div>
+    <div>
+      <label for="name">Паспортные данные</label>
+      <input type="text" name="passport" required>
+    </div>
+    <div>
+      <label for="name">Дата рождения</label>
+      <input type="date" name="calendar">
+    </div>
+    <div>
+      <span>Пол</span>
+      <label>
+        <input type="radio" name="sex" value="мужской">мужской
+        <div class="radio-control male"></div>
+      </label>
+      <label>
+        <input type="radio" name="sex" value="женский">женский
+        <div class="radio-control female"></div>
+      </label>
+    </div>
+    <button type="submit">Отправить</button>
+  </form>
+</div>
+  </body>
+</html>
