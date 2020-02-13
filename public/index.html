@@ -1,8 +1,20 @@
 <html>
     <head>
-
+        <script type="text/javascript" src="./script.js"></script>
+        <script>
+            // fetch2('/htbin/user.py', undefined, (res) => {
+            //     document.getElementById('name').innerHTML = res.name;
+            // });
+            fetch('/htbin/user.py', {methon: 'POST', headers: {'Content-Type': 'application/json'}})
+                .then((response) => {
+                    response.json();
+                    
+                }).then(json => {
+                    document.getElementById('name').innerHTML = json.name;
+                });
+        </script>
     </head>
     <body>
-        <h1>Hello python Hero!</h1>
+        <h1>Hello <span id='name'></span></h1>
     </body>
 </html>
