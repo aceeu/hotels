@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="form-wrap">
+  <div class="profile">
+    <h1>Создание новой гостиницы</h1>
+  </div>
+  <form method="post" action="form.php">
+    <div>
+      <label for="name">Номер гостиницы в сети</label>
+      <input type="text" name="number" required>
+    </div>
+    <div>
+      <label for="name">Количество этажей</label>
+      <input type="text" name="floors" required>
+    </div>
+    <div>
+      <label for="name">Количество номеров</label>
+      <input type="text" name="numbers" required>
+    </div>
+    <div>
+      <h3>Расположение отеля</h3>
+      <div>
+        <label for="name">Страна</label>
+        <input type="text" name="country" required>
+      </div>
+      <div>
+        <label for="name">Город</label>
+        <input type="text" name="city" required>
+      </div>
+      <div>
+        <label for="name">Улица</label>
+        <input type="text" name="street" required>
+      </div>
+      <div>
+        <label for="name">Дом</label>
+        <input type="text" name="house" required>
+      </div>
+    </div>
+    <button type="submit">Отправить</button>
+  </form>
+</div>
+  </body>
+</html>
