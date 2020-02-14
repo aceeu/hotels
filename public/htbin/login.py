@@ -12,9 +12,9 @@ formpass = form.getfirst("pass", '')
 
 key, pdict = cgi.parse_header(environ['HTTP_COOKIE'])
 uuid = ''
-logged = checkLogin(formname, formpass)
+logged, usertype = checkLogin(formname, formpass)
 if logged:
-    uuid = newSession(formname)
+    uuid = newSession(formname, usertype)
 print ("Content-type: text/html")
 print("Set-cookie: sid={};HttpOnly".format(uuid))
 print('')

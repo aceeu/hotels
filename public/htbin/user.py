@@ -11,9 +11,9 @@ print("")
 key, pdict = cgi.parse_header('ddd=sss; ' + environ['HTTP_COOKIE'])
 # print("<p>{}<p>".format(pdict))
 if 'sid' in pdict:
-    y, name = isSession(pdict['sid'])
+    y, name, usertype = isSession(pdict['sid'])
     if y == True:
-        res = dict(name=name)
+        res = dict(name=name, usertype=usertype)
         print(json.dumps(res))
     else:
         print("""{ }""")
