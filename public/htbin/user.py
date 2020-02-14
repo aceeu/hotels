@@ -13,7 +13,7 @@ key, pdict = cgi.parse_header('ddd=sss; ' + environ['HTTP_COOKIE'])
 if 'sid' in pdict:
     y, name = isSession(pdict['sid'])
     if y == True:
-        res = dict(name='administrator')
+        res = dict(name=name)
         print(json.dumps(res))
     else:
         print("""{ }""")

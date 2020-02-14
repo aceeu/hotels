@@ -35,7 +35,8 @@ def endSession(sid):
 def checkLogin(u, p):
     logged = False
     filename = os.path.join(path, users)
-    with open(filename) as f_obj: lines = f_obj.readlines()
+    with open(filename) as f_obj:
+        lines = f_obj.readlines()
     for line in lines:
         items = line.split(',')
         logged = (u == items[0]) and (p == items[1])

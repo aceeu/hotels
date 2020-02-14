@@ -13,7 +13,6 @@ formpass = form.getfirst("pass", '')
 key, pdict = cgi.parse_header(environ['HTTP_COOKIE'])
 
 logged = checkLogin(formname, formpass)
-uuid = ''
 if logged:
     uuid = newSession(formname)
 print ("Content-type: text/html")
