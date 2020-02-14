@@ -4,10 +4,10 @@ import uuid
 path = os.path.dirname(os.path.abspath(__file__))
 sessions = 'sessions.dat'
 users = 'users.dat'
+filename = os.path.join(path, sessions)
 
 
 def isSession(sid):
-    filename = os.path.join(path, sessions)
     with open(filename) as f_obj:
         lines = f_obj.readlines()
         for line in lines:
@@ -17,15 +17,13 @@ def isSession(sid):
     return False, ''
 
 def newSession(user):
-    uuid_ = uuid.uuid3(uuid.NAMESPACE_DNS, user)
-    filename = os.path.join(path, sessions)
-    with open(filename, 'w+') as fp:
+    uuid_ = uuid.uuid1()
+    with open(filename, 'a') as fp:
         fp.write('{},{}\n'.format(uuid_, user))
     return uuid_
 
 def endSession(sid):
-    print('sid: {}'.format(sid))
-    filename = os.path.join(path, sessions)
+    # print('sid: {}'.format(sid))
     with open(filename, 'r') as fp:
         lines = fp.readlines()
     with open(filename, 'w') as fp:
