@@ -4,7 +4,7 @@ from files import removeRecord, existRecord, addRecord
 
 path = os.path.dirname(os.path.abspath(__file__))
 sessions = 'sessions.dat'
-users = 'users.dat'
+users = 'users.lst'
 filename = os.path.join(path, sessions)
 
 def isSession(sid):
@@ -27,5 +27,6 @@ def endSession(sid):
 def checkLogin(u, p):
     def check(rec):
         r = rec.split(',')
-        return (r[0] == u) and (p == r[1])
-    return existRecord(os.path.join(path, users), check)
+        return (r[0].strip() == u) and (p == r[1].strip())
+    res, rec = existRecord(os.path.join(path, users), check)
+    return res

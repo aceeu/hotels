@@ -1,4 +1,5 @@
 import os
+from os import path
 import uuid
 
 def addRecord(filename, dataTuple): # data is tuple ('one', 'two', ....)
@@ -9,11 +10,14 @@ def addRecord(filename, dataTuple): # data is tuple ('one', 'two', ....)
     return uid
 
 def existRecord(filename, callback): # callback функция которая  принимает одну строку из файла и возвращает True или False
+    if path.exists(filename) == False:
+        return False, ''
     with open(filename, 'r') as fp:
         lines = fp.readlines()
         for line in lines:
-            if callback(line):
-                return True, line
+            l = line.strip()
+            if callback(l):
+                return True, l
         return False, ''
 
 def removeRecord(filename, callback):

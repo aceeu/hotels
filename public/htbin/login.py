@@ -11,7 +11,7 @@ formname = form.getfirst("name", '')
 formpass = form.getfirst("pass", '')
 
 key, pdict = cgi.parse_header(environ['HTTP_COOKIE'])
-
+uuid = ''
 logged = checkLogin(formname, formpass)
 if logged:
     uuid = newSession(formname)
