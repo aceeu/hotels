@@ -9,3 +9,4 @@ function user(callback) {
 function logout(callback) {
     fetch('/htbin/logout.py').then(callback)
 }
+

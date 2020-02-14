@@ -1,44 +1,31 @@
 import os
 import uuid
+from files import removeRecord, existRecord, addRecord
 
 path = os.path.dirname(os.path.abspath(__file__))
 sessions = 'sessions.dat'
 users = 'users.dat'
 filename = os.path.join(path, sessions)
 
-
 def isSession(sid):
-    with open(filename) as f_obj:
-        lines = f_obj.readlines()
-        for line in lines:
-            sline = line.split(',')
-            if (sline[0] == sid):
-                return True, sline[1]
-    return False, ''
+    def check(rec):
+        rs = rec.split(',')
+        if rs[0] == sid:
+            return True
+        return False
+    res, rec = existRecord(filename, check)
+    if res == False:
+        return False, ''
+    return True, rec.split(',')[1]
 
 def newSession(user):
-    uuid_ = uuid.uuid1()
-    with open(filename, 'a') as fp:
-        fp.write('{},{}\n'.format(uuid_, user))
-    return uuid_
+    return addRecord(filename, (user, 'usertype'))
 
 def endSession(sid):
-    # print('sid: {}'.format(sid))
-    with open(filename, 'r') as fp:
-        lines = fp.readlines()
-    with open(filename, 'w') as fp:
-        for l in lines:
-            ll = l.split(',')
-            if ll[0] != sid:
-                fp.write(ll)
+    removeRecord(filename, lambda line: line.split(',')[0] == sid)
 
 def checkLogin(u, p):
-    logged = False
-    filename = os.path.join(path, users)
-    with open(filename) as f_obj:
-        lines = f_obj.readlines()
-    for line in lines:
-        items = line.split(',')
-        logged = (u == items[0]) and (p == items[1])
-        if logged: break
-    return logged
+    def check(rec):
+        r = rec.split(',')
+        return (r[0] == u) and (p == r[1])
+    return existRecord(os.path.join(path, users), check)
