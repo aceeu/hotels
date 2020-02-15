@@ -27,3 +27,8 @@ def removeRecord(filename, callback):
         for l in lines:
             if callback(l) == False:
                 fp.write(l)
+
+def listRecords(filename):
+    with open(filename, 'r') as fp:
+        return fp.readlines()
+    return []
