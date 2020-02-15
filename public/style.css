@@ -1,0 +1,56 @@
+.first{
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.second{
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 95%;
+  margin:20px;
+}
+.second1{
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 95%;
+  margin:20px;
+}
+.numberHotel{
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.nameHotel{
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.geo{
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.delete{
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 10%;
+}
