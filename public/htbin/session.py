@@ -24,11 +24,3 @@ def newSession(user, type):
 
 def endSession(sid):
     removeRecord(filename, lambda line: line.split(',')[0] == sid)
-
-def checkLogin(u, p):
-    def check(rec):
-        r = rec.split(',')
-        return (r[0].strip() == u) and (p == r[1].strip())
-    res, rec = existRecord(os.path.join(path, users), check)
-    reca = rec.split(',')
-    return res, reca[2].strip() #res, type (A || M)

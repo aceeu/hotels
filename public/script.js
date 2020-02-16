@@ -6,6 +6,18 @@ function user(callback) {
         });
 }
 
+function removeHotel(uuid, callback) {
+    fetch('/htbin/hotels.py', {
+        method: 'POST', headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: "action=delete&uuid="+uuid
+    })
+    .then(resp => resp.json())
+    .then(json => callback())
+
+}
+
 function logout(callback) {
     fetch('/htbin/logout.py').then(callback)
 }

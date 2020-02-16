@@ -2,7 +2,8 @@
 import cgi
 import os
 from os import environ
-from session import checkLogin, newSession
+from session import newSession
+from common import checkLogin
 
 #path = os.path.dirname(os.path.abspath(__file__))
 

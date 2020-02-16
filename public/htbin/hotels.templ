@@ -3,11 +3,18 @@
                 <meta charset="utf-8">
             </head>
             <body>
-                <ul>
+                <div> <strong>Список гостниц</strong> </div>
+                <div>
                 {% for name in hotels_list %}
                     {% set splitted = name.split(',') %}
-                    <li>{{ splitted[6] }}</li>
+                    <div>
+                        <span>{{splitted[1]}}:{{ splitted[4]}}, {{splitted[5]}}, {{splitted[6]}}</span>
+                        <form method="POST" action="./hotels.py">
+                            <input type='hidden' name='uuid' value='{{splitted[0]}}'></input>
+                            <button type= 'submit'>Удалить</button>
+                        </form>
+                    </div>
                 {% endfor %}
-                </ul>
+                </div>
             </body>
         <html>
