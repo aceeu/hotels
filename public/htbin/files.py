@@ -5,7 +5,7 @@ import uuid
 def addRecord(filename, dataTuple): # data is tuple ('one', 'two', ....)
     uid = uuid.uuid1();
     row = str(uid)+ ',' + ','.join(dataTuple) + '\n'
-    with open(filename, 'a') as fp:
+    with open(filename, 'a', encoding="utf-8") as fp:
         fp.write(row)
     return uid
 
@@ -23,7 +23,7 @@ def existRecord(filename, callback): # callback функция которая  �
 def removeRecord(filename, callback):
     with open(filename, 'r') as fp:
         lines = fp.readlines()
-    with open(filename, 'w') as fp:
+    with open(filename, 'w', encoding="utf-8") as fp:
         for l in lines:
             if callback(l) == False:
                 fp.write(l)
