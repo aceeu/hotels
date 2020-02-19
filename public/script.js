@@ -1,9 +1,7 @@
 
 function user(callback) {
     fetch('/htbin/user.py', {method: 'POST', headers: {'Content-Type': 'application/json'}})
-        .then((response) => response.json()).then(json => {
-            callback(json.name);
-        });
+        .then((response) => response.json()).then(callback);
 }
 
 function removeHotel(uuid, callback) {

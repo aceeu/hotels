@@ -3,10 +3,11 @@
         <meta charset="utf-8">
         <script type="text/javascript" src="./script.js"></script>
         <script defer>
-            user(name => {
-                if (name) {
-                    user =name;
-                    document.getElementById('name').innerHTML = name;
+            user(json => {
+                if (json.name) {
+                    user = json.name;
+                    userType = json.usertype; // user type M - Manager, A - Administrator
+                    document.getElementById('name').innerHTML = user;
                     document.getElementById('exit').innerHTML = "Exit";
                     document.getElementById('exit').onclick = () => {
                         logout(() => document.location = 'login.html')
@@ -19,9 +20,10 @@
         </script>
     </head>
     <body>
-        <p>Hello <span id='name'></span>  <span id='exit'></span></p>
-        <a href="regNewHotel.html">Зарегистрировать  новую гостиницу</a>
-        <a href="htbin/hotels.py">Список гостиниц</a>
+        <p>Учетная запись <span id='name'></span>  <a href='#' id='exit'></a></p>
+        <p><a href="regNewHotel.html">Зарегистрировать  новую гостиницу</a></p>
+        <p><a href="htbin/hotels.py">Список гостиниц</a></p>
+        <p><a href="newAdmin.html">Новый администратор гостиницы</a></p>
 
     </body>
 </html>

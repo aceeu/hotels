@@ -3,15 +3,16 @@
                 <meta charset="utf-8">
             </head>
             <body>
-                <div> <strong>Список гостниц</strong> </div>
+                <a href="../index.html">На главную</a>
+                <div> <strong>{{title}}</strong> </div>
                 <div>
                     <table>
-                    {% for name in hotels_list %}
-                        {% set splitted = name.split(',') %}
+                    {% for name in list %}
+                        {% set splitted = name %}
                         <tr>
                             <td>{{splitted[1]}}</td><td>{{ splitted[4]}}</td><td>{{splitted[5]}}</td><td>{{splitted[6]}}</td>
                             <td>
-                                <form method="POST" action="./hotels.py" style="display: inline-block">
+                                <form method="POST" action="{{action}}" style="display: inline-block">
                                     <input type='hidden' name='uuid' value='{{splitted[0]}}'></input>
                                     <button type= 'submit'>Удалить</button>
                                 </form>

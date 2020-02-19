@@ -15,7 +15,7 @@ def isSession(sid):
         return False
     res, rec = existRecord(filename, check)
     if res == False:
-        return False, ''
+        return False, '', ''
     recA = rec.split(',')
     return True, recA[1], recA[2] # name, type (A,M)
 

@@ -10,9 +10,9 @@ def checkLogin(u, p):
     reca = rec.split(',')
     return res, reca[2].strip() #res, type (A || M)
 
-def redirectTo(url):
+def redirectTo(url, message = '', timeout = 0):
     filename = os.path.join(path, 'redirect.templ')
     with open(filename, 'r') as f:
         html = f.read()
         template = Template(html)
-        print(template.render(url=url))
+        print(template.render(url=url, message=message, timeout=timeout))
