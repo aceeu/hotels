@@ -3,7 +3,7 @@ from os import path
 import uuid
 
 def addRecord(filename, dataTuple): # data is tuple ('one', 'two', ....)
-    uid = uuid.uuid1();
+    uid = uuid.uuid1()
     row = str(uid)+ ',' + ','.join(dataTuple) + '\n'
     with open(filename, 'a', encoding="utf-8") as fp:
         fp.write(row)

@@ -7,13 +7,12 @@
                 <div> <strong>{{title}}</strong> </div>
                 <div>
                     <table>
-                    {% for name in list %}
-                        {% set splitted = name %}
+                    {% for item in list %}
                         <tr>
-                            <td>{{splitted[1]}}</td><td>{{ splitted[4]}}</td><td>{{splitted[5]}}</td><td>{{splitted[6]}}</td>
+                            {% for i in item %} <td>{{i}}</td> {% endfor %}
                             <td>
                                 <form method="POST" action="{{action}}" style="display: inline-block">
-                                    <input type='hidden' name='uuid' value='{{splitted[0]}}'></input>
+                                    <input type='hidden' name='uuid' value='{{item[0]}}'></input>
                                     <button type= 'submit'>Удалить</button>
                                 </form>
                             </td>

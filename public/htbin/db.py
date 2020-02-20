@@ -26,16 +26,16 @@ def removeUser(idu):
     except sqlite3.IntegrityError:
         pass
 # hotel
-def addHotel(floors, count, country, city, street, house):
+def addHotel(name, floors, count, country, city, street, house):
     try:
-        cursor.execute("""INSERT INTO hotels(floors, count, country, city, street, house)
-        VALUES({}, {}, '{}', '{}', '{}','{}')""".format(floors, count, country, city, street, house))
+        cursor.execute("""INSERT INTO hotels(name, floors, count, country, city, street, house)
+        VALUES('{}', {}, {}, '{}', '{}', '{}','{}')""".format(name, floors, count, country, city, street, house))
         conn.commit()
     except sqlite3.IntegrityError:
         pass
 
 def listHotels():
-    cursor.execute("SELECT id, country, city, street FROM hotels")
+    cursor.execute("SELECT id, name, country, city, street FROM hotels")
     return cursor.fetchall()
 
 def removeHotel(idu):

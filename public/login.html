@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="./script.js"></script>
     <script defer>
-        user(name => {
-            if (name) {
+        user(json => {
+            if (json?.name) {
               document.location = 'index.html';
             }
         })

@@ -22,18 +22,20 @@ if method == 'POST':
         removeHotel(uuid)
         redirectTo('./hotels.py') #list of hotels
     else:
+        name = form.getfirst("name", '')
         floors = form.getfirst("floors", '')
         count = form.getfirst("count", '')
         country = form.getfirst("country", '')
         city = form.getfirst("city", '')
         street = form.getfirst("street", '')
         house = form.getfirst("house", '')
-        addHotel(floors, count, country, city, street, house)
+        addHotel(name, floors, count, country, city, street, house)
         redirectTo('../index.html')
 elif (method == "GET"):
     filename = os.path.join(path, 'list.templ')
     with open(filename, 'r') as f:
         html = f.read()
         template = Template(html)
-        listr = listHotels()
+        listr = listHotels() #[(id, name, country, city, street)]
+        
         print(template.render(list=listr, action='./hotels.py', title='Hotels list'))

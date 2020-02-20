@@ -37,5 +37,5 @@ elif method == "GET": # list of lodgers
         html = f.read()
         template = Template(html)
         listr = listLodgers()
-        print(template.render(list=listr, action='./lodger.py' title=u'list of lodgers Ю'))
+        print(template.render(list=listr, action='./lodger.py' title=u'list of lodgers'))
         
