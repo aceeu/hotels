@@ -27,7 +27,8 @@ cursor.execute("""
         country TEXT NOT NULL,
         city TEXT NOT NULL,
         street TEXT NOT NULL,
-        house TEXT NOT NULL)
+        house TEXT NOT NULL,
+        admin INTEGER)
 """)
 cursor.execute("""INSERT OR IGNORE INTO hotels (name, floors, count, country, city, street, house) VALUES
                                                 ('Cosmos',2,10,'Russia','Moscow','Lenina',2)""")

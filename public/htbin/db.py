@@ -8,9 +8,13 @@ conn = sqlite3.connect(hotelsfilename)
 cursor = conn.cursor()
 
 #user
-def addUser(name, password , type):
+def addUser(name, password , hotel, type):
     try:
-        cursor.execute("""INSERT INTO users (name, password, type) VALUES ('{}', '{}', '{}')""".format(name, password, 'A1'))
+        cursor.execute("""INSERT INTO users (name, password, type) VALUES ('{}', '{}', '{}')""".format(name, password, type))
+        conn.commit()
+        cursor.execute("SELECT id FROM users WHERE name=?", [(name)])
+        id = cursor.fetchone()
+        cursor.execute("UPDATE hotels SET admin=? WHERE id=?",[(id[0]), (hotel)])
         conn.commit()
     except sqlite3.IntegrityError:
         pass
@@ -35,7 +39,11 @@ def addHotel(name, floors, count, country, city, street, house):
         pass
 
 def listHotels():
-    cursor.execute("SELECT id, name, country, city, street FROM hotels")
+    cursor.execute("SELECT id, name, country, city, street, admin FROM hotels")
+    return cursor.fetchall()
+
+def listHotelsWithoutAdmin():
+    cursor.execute("SELECT id, name FROM hotels WHERE admin IS NULL")
     return cursor.fetchall()
 
 def removeHotel(idu):

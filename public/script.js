@@ -4,16 +4,14 @@ function user(callback) {
         .then((response) => response.json()).then(callback);
 }
 
-function removeHotel(uuid, callback) {
-    fetch('/htbin/hotels.py', {
-        method: 'POST', headers: {
+function listHotelsWithoutAdmin(callback) {
+    fetch('/htbin/hotels.py?addadmin', {
+        method: 'GET', headers: {
         'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: "action=delete&uuid="+uuid
+        }
     })
     .then(resp => resp.json())
-    .then(json => callback())
-
+    .then(callback)
 }
 
 function logout(callback) {

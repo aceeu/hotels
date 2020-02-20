@@ -26,7 +26,8 @@ if method == 'POST':
     else:
         name = form.getfirst("name", '')
         password = form.getfirst("password", '')
-        addUser(name, password, 'A1') # added admin
+        hotel = form.getfirst("hotel", '')
+        addUser(name, password, hotel, 'A1') # added admin
         redirectTo('./admins.py')
 elif (method == "GET"): #list
     listfilename = os.path.join(path, 'list.templ')
@@ -35,4 +36,4 @@ elif (method == "GET"): #list
         template = Template(html)
         listr = listUsers('A1')
         #print(listr) #[(3, 'ace', 'A1')]
-        print(template.render(list=listr, action="./admins.py", title=u'list of users'))
+        print(template.render(list=listr, action="./admins.py", title=u'list of administrator'))

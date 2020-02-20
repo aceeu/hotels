@@ -2,6 +2,16 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
+    <script type="text/javascript" src="./script.js"></script>
+    <script defer>
+        listHotelsWithoutAdmin(json => {
+          let options = '';
+          json.forEach(element => {
+            options += `<option value='${element[0]}'>${element[1]}</option>`;
+          });
+          document.getElementById('hotels').innerHTML = options;
+        })
+    </script>
   </head>
   <body>
     <div class="first">
@@ -21,9 +31,7 @@
     </div>
     <div>
       <p>Выберите номер отеля
-      <select>
-        <option>1</option>
-        <option>2</option>
+      <select id='hotels' name='hotel'>
       </select>
       </p>
     </div>
