@@ -39,8 +39,28 @@ def listHotels():
     return cursor.fetchall()
 
 def removeHotel(idu):
+    id = int(idu)
     try:
-        cursor.execute("DELETE FROM hotels WHERE id=?", [(idu)])
+        cursor.execute("DELETE FROM hotels WHERE id=?", [(id)])
+        conn.commit()
+    except sqlite3.IntegrityError:
+        pass
+
+def addLodger(dataTuple):
+    try:
+        cursor.execute("""INSERT INTO lodgers(name, lastname, patronymic, tel, passport, birthday, sex)
+        VALUES('{}', '{}', '{}','{}','{}','{}', {})""".format(*dataTuple))
+    except sqlite3.IntegrityError:
+        pass
+
+def listLodgers():
+    cursor.execute("SELECT name, lastname, payronymic, tel, passport FROM lodgers")
+    return cursor.fetchall()
+
+def removeLodger(uuidLodger):
+    id = int(uuidLodger)
+    try:
+        cursor.execute("DELETE FROM lodgers WHERE id=?", [(id)])
         conn.commit()
     except sqlite3.IntegrityError:
         pass

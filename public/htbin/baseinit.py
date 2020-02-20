@@ -13,6 +13,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     type TEXT NOT NULL,
     hotelId INTEGER
     )""")
+#default users
 cursor.execute("""INSERT OR IGNORE INTO users (name, password, type) VALUES ('Admin', 'Admin', 'A')""")
 cursor.execute("""INSERT OR IGNORE INTO users (name, password, type) VALUES ('{}', '{}', '{}')""".format('Manager', 'Manager', 'M'))
 
@@ -26,5 +27,18 @@ cursor.execute("""
         city TEXT NOT NULL,
         street TEXT NOT NULL,
         house TEXT NOT NULL)
+""")
+
+#lodgers
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS lodgers(
+        id INTEGER PRIMARY KEY,
+        name TEXT NOT NULL,
+        lastname TEXT NOT NULL,
+        patronymic TEXT,
+        tel TEXT NOT NULL,
+        passport TEXT NOT NULL,
+        birthday TEXT,
+        sex INTEGER NOT NULL)
 """)
 conn.commit()
