@@ -1,6 +1,6 @@
 import sqlite3
 import os
- 
+
 path = os.path.dirname(os.path.abspath(__file__))
 hotelsfilename = os.path.join(path, 'hotels.db')
 

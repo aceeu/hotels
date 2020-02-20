@@ -1,4 +1,4 @@
-# main hotel manager webserver 
+# main hotel manager webserver
 import sys
 import os
 from cgi import parse_header
@@ -25,7 +25,7 @@ class httpServer(http.server.CGIHTTPRequestHandler):
 
         # # list of headers
         # # for header in self.headers:
-        # #   print('header: {}'.format(header))  
+        # #   print('header: {}'.format(header))
         # if "Cookie" in self.headers:
         #     key, pdict = parse_header(self.headers['Cookie'])
         #     sid = 'none'
@@ -38,7 +38,7 @@ class httpServer(http.server.CGIHTTPRequestHandler):
         # self.end_headers()
         # print('end')
 
-    
+
 Handler = httpServer;
 
 if __name__ == '__main__':

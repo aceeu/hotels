@@ -1,13 +1,15 @@
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
   </head>
   <body>
-    <div class="form-wrap">
-  <div class="profile">
-    <h1>Регистрация постояльца</h1>
-  </div>
-  <form method="post" action="htbin/lodger.py">
+    <div class="first">
+      <div class="second">
+  <form class="forma" method="post" action="htbin/lodger.py">
+    <div class="profile">
+      <h1 class="zagolovok">Регистрация постояльца</h1>
+    </div>
     <div>
       <label for="name">Имя</label>
       <input type="text" name="name" required>
@@ -45,6 +47,7 @@
     </div>
     <button type="submit">Отправить</button>
   </form>
+</div>
 </div>
   </body>
 </html>

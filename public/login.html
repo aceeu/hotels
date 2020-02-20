@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
     <script type="text/javascript" src="./script.js"></script>
     <script defer>
@@ -12,11 +13,12 @@
 
   </head>
   <body>
-    <div class="form-wrap">
+  <div class="first">
+  <div class="second">
   <div class="profile">
-    <h1>Авторизация</h1>
+    <h1 class="zagolovok">Авторизация</h1>
   </div>
-  <form method="post" id="login" action="/htbin/login.py">
+  <form class="forma" method="post" id="login" action="/htbin/login.py">
     <div>
       <label for="name">Имя</label>
       <input type="text" name="name" required>
@@ -27,6 +29,7 @@
     </div>
     <button type="submit">Отправить</button>
   </form>
+</div>
 </div>
   </body>
 </html>

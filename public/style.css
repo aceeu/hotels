@@ -5,6 +5,10 @@
   flex-direction: column;
   align-items: center;
 }
+.zagolovok{
+  font-size: 20px;
+  border-bottom: 2px solid gray;
+}
 .second{
   border: 2px solid black;
   background-color: white;
@@ -16,6 +20,12 @@
 }
 .forma{
   margin:20px;
+}
+.forma1{
+  margin:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .second1{
   border: 2px solid black;
