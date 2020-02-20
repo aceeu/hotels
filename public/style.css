@@ -1,5 +1,4 @@
 .first{
-  border: 2px solid black;
   background-color: white;
   border-radius: 10px;
   display: flex;
@@ -11,9 +10,11 @@
   background-color: white;
   border-radius: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  width: 95%;
+  margin:20px;
+}
+.forma{
   margin:20px;
 }
 .second1{
