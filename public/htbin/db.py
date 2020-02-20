@@ -19,6 +19,10 @@ def addUser(name, password , hotel, type):
     except sqlite3.IntegrityError:
         pass
 
+def getUser(name, password):
+    cursor.execute("SELECT id, type FROM users WHERE name=? AND password=?", [(name),(password)])
+    return cursor.fetchone()
+
 def listUsers(type):
     cursor.execute("SELECT id, name, type FROM users WHERE type=?", [(type)])
     return cursor.fetchall()

@@ -4,7 +4,6 @@ from files import removeRecord, existRecord, addRecord
 
 path = os.path.dirname(os.path.abspath(__file__))
 sessions = 'sessions.dat'
-users = 'users.lst'
 filename = os.path.join(path, sessions)
 
 def isSession(sid):
